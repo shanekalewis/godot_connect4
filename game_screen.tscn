@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://0oytnbudb2my"]
+
+[ext_resource type="Script" path="res://game_screen.gd" id="1_0dq2p"]
+[ext_resource type="Script" path="res://grid.gd" id="1_ptqh5"]
+[ext_resource type="Texture2D" uid="uid://dgn3t28fsjqjf" path="res://Connect4_Empty.png" id="3_rwujk"]
+[ext_resource type="Texture2D" uid="uid://cs6ati2m2ia72" path="res://UI/yellow_token.png" id="4_0yyuj"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_0dq2p")
+
+[node name="grid" type="Node2D" parent="."]
+script = ExtResource("1_ptqh5")
+
+[node name="column1" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 96.0
+offset_right = 172.0
+offset_bottom = 161.0
+text = "Column 1"
+
+[node name="column2" type="Button" parent="."]
+offset_left = 184.0
+offset_top = 96.0
+offset_right = 332.0
+offset_bottom = 161.0
+text = "Column 2"
+
+[node name="column3" type="Button" parent="."]
+offset_left = 344.0
+offset_top = 96.0
+offset_right = 492.0
+offset_bottom = 161.0
+text = "Column 3"
+
+[node name="column4" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 96.0
+offset_right = 652.0
+offset_bottom = 161.0
+text = "Column 4"
+
+[node name="column5" type="Button" parent="."]
+offset_left = 664.0
+offset_top = 96.0
+offset_right = 812.0
+offset_bottom = 161.0
+text = "Column 5
+"
+
+[node name="column6" type="Button" parent="."]
+offset_left = 824.0
+offset_top = 96.0
+offset_right = 972.0
+offset_bottom = 161.0
+text = "Column 6"
+
+[node name="column7" type="Button" parent="."]
+offset_left = 984.0
+offset_top = 96.0
+offset_right = 1132.0
+offset_bottom = 161.0
+text = "Column 7"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 424.0
+offset_top = 32.0
+offset_right = 512.0
+offset_bottom = 72.0
+text = "Player:"
+
+[node name="Current Player" type="Sprite2D" parent="."]
+
+[node name="Connect4Empty" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(576, 488)
+scale = Vector2(1.06886, 1.05787)
+texture = ExtResource("3_rwujk")
+
+[node name="player_turn" type="Sprite2D" parent="."]
+position = Vector2(552, 48)
+texture = ExtResource("4_0yyuj")
+
+[connection signal="pressed" from="column1" to="." method="_on_column_1_pressed"]
+[connection signal="pressed" from="column2" to="." method="_on_column_2_pressed"]
+[connection signal="pressed" from="column3" to="." method="_on_column_3_pressed"]
+[connection signal="pressed" from="column4" to="." method="_on_column_4_pressed"]
+[connection signal="pressed" from="column5" to="." method="_on_column_5_pressed"]
+[connection signal="pressed" from="column6" to="." method="_on_column_6_pressed"]
+[connection signal="pressed" from="column7" to="." method="_on_column_7_pressed"]
