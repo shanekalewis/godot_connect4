@@ -101,17 +101,17 @@ func foundConnect4(color):
 			game_grid[row+3][i+3].texture == color:
 				return true
 				
-	# descending diagonal check
+	# descending diagonal check - FIXME
 	#print("Descending diagonal")
-	for row in range(width-1, 2, -1):
+	for row in range(3, width):
 		#print("Row: ", row)
-		for i in range(height-1, 2, -1):
+		for i in range(3, height):
 			#print("Row: ", row, " Col: ", i)
-			#print("Check: ", game_grid[row][i]," ",  game_grid[row-1][i-1]," ",  game_grid[row-2][i-2]," ", game_grid[row-3][i-3])
-			if game_grid[row][i].texture == color && \
-			game_grid[row-1][i-1].texture == color && \
-			game_grid[row-2][i-2].texture == color && \
-			game_grid[row-3][i-3].texture == color:
+			#print("Check: ", game_grid[row][i-3]," ",  game_grid[row-1][i-2]," ",  game_grid[row-2][i-1]," ", game_grid[row-3][i])
+			if game_grid[row][i-3].texture == color && \
+			game_grid[row-1][i-2].texture == color && \
+			game_grid[row-2][i-1].texture == color && \
+			game_grid[row-3][i].texture == color:
 				return true
 	
 	return false

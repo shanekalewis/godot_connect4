@@ -9,10 +9,20 @@ var tokens = [
 	preload("res://UI/yellow_token.png")
 ]
 
+var buttons = [
+	"column1",
+	"column2",
+	"column3",
+	"column4",
+	"column5",
+	"column6",
+	"column7",
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	hide_win_info()
+	show_col_buttons()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,7 +48,16 @@ func add_next_token(col):
 
 func check_game():
 	var grid = get_node("grid")
-	print(grid.check_winner())
+	var winner = grid.check_winner()
+	
+	if winner == "yellow":
+		print("yellow wins!")
+		hide_col_buttons()
+		show_win_info(winner)
+	elif winner == "red":
+		print("red wins!")
+		hide_col_buttons()
+		show_win_info(winner)
 
 func _on_column_1_pressed():
 	add_next_token(0)
@@ -60,3 +79,33 @@ func _on_column_6_pressed():
 
 func _on_column_7_pressed():
 	add_next_token(6)
+
+func hide_col_buttons():
+	for col in buttons:
+		get_node(col).hide()
+		
+func show_col_buttons():
+	for col in buttons:
+		get_node(col).show()
+
+func hide_win_info():
+	get_node("exit").hide()
+	get_node("play_again").hide()
+	get_node("winning_player").hide()
+	
+func show_win_info(winner):
+	get_node("exit").show()
+	get_node("play_again").show()
+	get_node("winning_player").text = "Player " + winner + " wins!"
+	get_node("winning_player").show()
+
+func _on_play_again_pressed():
+	var gs_game = load("res://game_screen.tscn").instantiate()
+	get_tree().root.add_child(gs_game)
+	self.hide()
+
+
+func _on_exit_pressed():
+	var gs_game = load("res://home_screen.tscn").instantiate()
+	get_tree().root.add_child(gs_game)
+	self.hide()
