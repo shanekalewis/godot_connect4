@@ -100,12 +100,12 @@ func show_win_info(winner):
 	get_node("winning_player").show()
 
 func _on_play_again_pressed():
-	var gs_game = load("res://game_screen.tscn").instantiate()
-	get_tree().root.add_child(gs_game)
-	self.hide()
+	SceneSwitcher.change_scene(self, "res://game_screen.tscn")
 
 
 func _on_exit_pressed():
-	var gs_game = load("res://home_screen.tscn").instantiate()
-	get_tree().root.add_child(gs_game)
-	self.hide()
+	SceneSwitcher.change_scene(self, "res://home_screen.tscn")
+
+
+func _on_back_to_main_menu_pressed():
+	SceneSwitcher.change_scene(self, "res://home_screen.tscn")

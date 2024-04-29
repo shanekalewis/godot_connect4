@@ -27,3 +27,4 @@ offset_bottom = 255.0
 text = "Connect4"
 
 [connection signal="pressed" from="local_play" to="." method="_on_local_play_pressed"]
+[connection signal="pressed" from="remote_play" to="." method="_on_remote_play_pressed"]
